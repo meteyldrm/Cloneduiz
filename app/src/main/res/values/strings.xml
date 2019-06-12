@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cloneduiz</string>
+    <string name="activity_main_start_prompt">Testi çözmek için hemen başla</string>
+    <string name="start">Başla</string>
+    <string name="high_score">Yüksek Skor</string>
+    <string name="set_presentation">Görünümünü seç</string>
 </resources>

@@ -8,14 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-                <category android:name="android.intent.category.DEFAULT"></category>
-                <action android:name="android.intent.action.MAIN"></action>
-                <action android:name="android.intent.action.VIEW"></action>
+                <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.PresentationSelectionActivity"/>
     </application>
 
 </manifest>
