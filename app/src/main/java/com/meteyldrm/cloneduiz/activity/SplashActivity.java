@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		findViewById(R.id.activitySplashLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.cloneduizAccent));
+		findViewById(R.id.activitySplashLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
 
 		handler = new Handler();
 		handler.postDelayed(new Runnable() {
@@ -40,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
 
 	private void launchMainActivity(){
 		Intent intent = new Intent(this, MainActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		startActivity(intent);
-		finish();
 	}
 }

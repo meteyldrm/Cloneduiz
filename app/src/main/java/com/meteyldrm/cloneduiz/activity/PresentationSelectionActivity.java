@@ -1,7 +1,6 @@
 package com.meteyldrm.cloneduiz.activity;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -21,7 +20,7 @@ public class PresentationSelectionActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_presentation_selection);
 
 		toolbar = findViewById(R.id.toolbar);
-		((TextView) toolbar.findViewById(R.id.toolbar_title)).setText(R.string.set_presentation);
+		/*((TextView) toolbar.findViewById(R.id.toolbar_title)).setText(R.string.set_presentation);*/
 
 
 	}
