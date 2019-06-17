@@ -12,18 +12,16 @@ import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 import com.meteyldrm.cloneduiz.R;
-import com.meteyldrm.cloneduiz.questions.Question;
 import com.meteyldrm.cloneduiz.questions.QuestionData;
+import com.meteyldrm.cloneduiz.questions.QuestionPlaceHolder;
 import com.meteyldrm.cloneduiz.utility.Constants;
+import com.meteyldrm.cloneduiz.utility.Sort;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public class SplashActivity extends AppCompatActivity {
-
-	Handler handler;
-	QuestionData question;
 
 	private boolean isInitializationFinished = false;
 	public boolean isSplashFinished = false;
@@ -34,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_splash);
 		findViewById(R.id.activitySplashLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
 
-		handler = new Handler();
+		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
@@ -46,15 +44,21 @@ public class SplashActivity extends AppCompatActivity {
 			}
 		}, Constants.SPLASH_SCREEN_DURATION_MINIMUM);
 
-		this.initialize();
+		boolean questionsLoaded = this.initialize();
+
+		if(!questionsLoaded){
+			Toast.makeText(this, "Could not initialize", Toast.LENGTH_SHORT).show();
+		} else {
+			Toast.makeText(this, "Init", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	public boolean initialize() {
 
 		boolean success;
 
-		String jsonData = "";
-		int jsonSize = 0;
+		String jsonData;
+		int jsonSize;
 		try {
 			InputStream stream = getAssets().open("questions.json");
 			jsonSize = stream.available();
@@ -64,31 +68,25 @@ public class SplashActivity extends AppCompatActivity {
 
 			jsonData = new String(bytes, StandardCharsets.UTF_8);
 			Gson gson = new Gson();
-			final QuestionData question = gson.fromJson(jsonData, QuestionData.class);
-			Handler handler = new Handler();
-			handler.postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					Toast.makeText(getApplicationContext(), Integer.toString(question.getQuestions().length), Toast.LENGTH_SHORT).show();
-				}
-			},((long) 1000));
-
-			for(Object o: question.getQuestions()){
-				Log.d("TEST", ((Question) o).getQuestion());
-			}
-
+			final QuestionPlaceHolder questions = gson.fromJson(jsonData, QuestionPlaceHolder.class);
+			QuestionData.getInstance().setQuestions(questions.questions);
+			//Log.d("LOG", Arrays.deepToString(QuestionData.getInstance().getQuestions().toArray()));
+			Sort.sort(QuestionData.getInstance().getQuestions(), Sort.RANDOM);
+			/*Log.d("LOG RANDOM", Arrays.deepToString(QuestionData.getInstance().getQuestions().toArray()));
+			Sort.sort(QuestionData.getInstance().getQuestions(), Sort.BY_QUESTION);
+			Log.d("LOG QUESTION", Arrays.deepToString(QuestionData.getInstance().getQuestions().toArray()));
+			Sort.sort(QuestionData.getInstance().getQuestions(), Sort.BY_ID);
+			Log.d("LOG ID", Arrays.deepToString(QuestionData.getInstance().getQuestions().toArray()));*/
 			success = true;
 		} catch (IOException exception) {
 			success = false;
 			exception.printStackTrace();
 		}
-
 		this.onInitializeFinish();
 		return success;
 	}
 
 	public void onInitializeFinish() {
-		Toast.makeText(this, "Initialized", Toast.LENGTH_LONG).show();
 		if(isSplashFinished) {
 			launchMainActivity();
 		} else {

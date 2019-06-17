@@ -5,11 +5,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.questions.QuestionData;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 				launchPresentationSelectionActivity();
 			}
 		});
-
-
 
 	}
 

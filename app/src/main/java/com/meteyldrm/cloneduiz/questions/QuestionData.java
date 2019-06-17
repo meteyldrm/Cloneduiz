@@ -1,6 +1,6 @@
 package com.meteyldrm.cloneduiz.questions;
 
-import com.google.gson.annotations.SerializedName;
+import java.util.LinkedList;
 
 public class QuestionData {
 
@@ -14,9 +14,11 @@ public class QuestionData {
 		}
 	}
 
-	@SerializedName("Questions")
-	private Question[] questions;
+	private static LinkedList<Question> questions;
 
-	public Question[] getQuestions() { return questions; }
-	public void setQuestions(Question[] value) { this.questions = value; }
+	public LinkedList<Question> getQuestions() { return questions; }
+
+	public void setQuestions(LinkedList<Question> value) { questions = value; }
+
+
 }
