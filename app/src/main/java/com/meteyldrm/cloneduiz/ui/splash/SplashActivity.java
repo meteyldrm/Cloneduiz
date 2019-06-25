@@ -1,9 +1,8 @@
-package com.meteyldrm.cloneduiz.activity;
+package com.meteyldrm.cloneduiz.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -14,6 +13,7 @@ import com.google.gson.Gson;
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.questions.QuestionData;
 import com.meteyldrm.cloneduiz.questions.QuestionPlaceHolder;
+import com.meteyldrm.cloneduiz.ui.main.MainActivity;
 import com.meteyldrm.cloneduiz.utility.Constants;
 import com.meteyldrm.cloneduiz.utility.Sort;
 
