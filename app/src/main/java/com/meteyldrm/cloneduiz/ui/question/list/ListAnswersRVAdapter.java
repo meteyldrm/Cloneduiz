@@ -31,7 +31,22 @@ public class ListAnswersRVAdapter extends RecyclerView.Adapter {
 
 	@Override
 	public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-		((ViewHolderAnswer) holder).bindResources(answers.get(position));
+		Answer answer=answers.get(position);
+		((ViewHolderAnswer) holder).bindResources(answer);
+		holder.itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				for(Answer ans: answers){
+					ans.setSelected(false);
+				}
+				answer.setSelected(true);
+				notifyDataSetChanged();
+			}
+		});
+
+		if (answer.getSelected()){
+			holder.itemView.setBackground(holder.itemView.getContext().getDrawable(R.drawable.border_selected_answer));
+		} else holder.itemView.setBackground(holder.itemView.getContext().getDrawable(R.drawable.border_answers));
 	}
 
 	@Override

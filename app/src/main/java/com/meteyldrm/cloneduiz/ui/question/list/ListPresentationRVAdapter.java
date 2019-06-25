@@ -16,7 +16,6 @@ import com.meteyldrm.cloneduiz.questions.Question;
 
 import org.w3c.dom.Text;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,11 +90,8 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 		public ViewHolderQuestion(View view, ViewGroup parent){
 			 super(view);
 
-
-
 			 questionTitle = view.findViewById(R.id.textView_presentation_list_question_title);
-
-			answerLayoutManager = new LinearLayoutManager(parent.getContext());
+			 answerLayoutManager = new LinearLayoutManager(parent.getContext());
 
 			 answerRecyclerView = view.findViewById(R.id.recyclerView_list_answer_holder);
 			 answerRecyclerView.setHasFixedSize(true);
