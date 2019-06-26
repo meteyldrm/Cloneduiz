@@ -5,4 +5,6 @@
     <string name="high_score">Yüksek Skor</string>
     <string name="set_presentation">Görünümünü seç</string>
     <string name="proceed">Devam</string>
+    <string name="hint_name">İsim Gir</string>
+    <string name="name_required"><i>Skor tablosu için ismine ihtiyacım var</i></string>
 </resources>

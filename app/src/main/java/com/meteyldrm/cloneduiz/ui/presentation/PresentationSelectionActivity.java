@@ -39,6 +39,6 @@ public class PresentationSelectionActivity extends AppCompatActivity {
 			public void run() {
 				startActivity(intent);
 			}
-		}, (long) 500);
+		}, (long) 5);
 	}
 }

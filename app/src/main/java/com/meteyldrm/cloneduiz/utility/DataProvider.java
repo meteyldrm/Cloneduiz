@@ -1,10 +1,10 @@
 package com.meteyldrm.cloneduiz.utility;
 
-import android.app.Application;
 import android.content.res.Resources;
-import android.provider.ContactsContract;
 
-public class DataProvider extends Application {
+import com.orm.SugarApp;
+
+public class DataProvider extends SugarApp {
 
 	private static DataProvider instance = null;
 
