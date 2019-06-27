@@ -37,7 +37,7 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-		RecyclerView.ViewHolder viewHolder = null;
+		RecyclerView.ViewHolder viewHolder;
 		inflater = LayoutInflater.from(parent.getContext());
 
 		if(viewType == TYPE_QUESTION) {
@@ -59,13 +59,13 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 			((ViewHolderQuestion) holder).bindResources(questions.get(position));
 			((ViewHolderQuestion) holder).answerRecyclerView.setLayoutManager(((ViewHolderQuestion) holder).answerLayoutManager);
 
-			((ViewHolderQuestion) holder).answerRecyclerView.setAdapter(new ListAnswersRVAdapter(Arrays.asList(questions.get(position).getAnswers())));
+			((ViewHolderQuestion) holder).answerRecyclerView.setAdapter(new ListAnswersRVAdapter(questions.get(position).getAnswersAsList()));
 		}
 	}
 
 	@Override
 	public int getItemCount() {
-		return questions.size();
+		return this.questions.size();
 	}
 
 	@Override

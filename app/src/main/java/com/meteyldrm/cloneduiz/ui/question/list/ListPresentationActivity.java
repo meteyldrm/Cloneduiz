@@ -1,10 +1,9 @@
 package com.meteyldrm.cloneduiz.ui.question.list;
 
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.os.Parcelable;
 import android.view.View;
-import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,15 +14,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.meteyldrm.cloneduiz.R;
+import com.meteyldrm.cloneduiz.questions.Answer;
+import com.meteyldrm.cloneduiz.questions.Question;
 import com.meteyldrm.cloneduiz.questions.QuestionData;
+import com.meteyldrm.cloneduiz.questions.QuestionPlaceHolder;
+import com.meteyldrm.cloneduiz.ui.score.ResultsActivity;
+import com.meteyldrm.cloneduiz.utility.Constants;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ListPresentationActivity extends AppCompatActivity {
 
 	RecyclerView recyclerView;
 
-	AppCompatButton proceedButton = findViewById(R.id.button_proceed);
+	AppCompatButton proceedButton;
 
 
 	@Override
@@ -32,27 +39,31 @@ public class ListPresentationActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_question_list);
 
+		proceedButton = findViewById(R.id.button_proceed_question_list);
+
 		recyclerView = findViewById(R.id.listRecyclerView);
-		recyclerView.setHasFixedSize(true);
-		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-		recyclerView.setLayoutManager(mLayoutManager);
 
 		proceedButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				QuestionPlaceHolder placeHolder = new QuestionPlaceHolder();
+				placeHolder.questions = QuestionData.getInstance().getQuestions();
+				Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+				intent.putExtra(Constants.PARCELABLE_QUESTION_RESULT_KEY, placeHolder);
+				startActivity(intent);
 			}
 		});
 
 		DividerItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 		itemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(this, R.drawable.divider)));
 		recyclerView.addItemDecoration(itemDecoration);
-		recyclerView.setAdapter(new ListPresentationRVAdapter(QuestionData.getInstance().getQuestions()));
+		recyclerView.setLayoutManager(new LinearLayoutManager(this));
+		recyclerView.setAdapter(new ListPresentationRVAdapter(QuestionData.getInstance().getQuestionsAsList()));
 	}
 
 	@Override
-	protected void onResume() {
-		super.onResume();
+	protected void onPause() {
+		super.onPause();
 		QuestionData.getInstance().resetState();
 	}
 }

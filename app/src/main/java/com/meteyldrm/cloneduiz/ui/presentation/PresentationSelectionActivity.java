@@ -25,7 +25,7 @@ public class PresentationSelectionActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_presentation_selection);
 
-		toolbar = findViewById(R.id.toolbar);
+		toolbar = findViewById(R.id.toolbar_presentation_selection);
 		/*((TextView) toolbar.findViewById(R.id.toolbar_title)).setText(R.string.set_presentation);*/
 
 		viewPager = findViewById(R.id.viewPager);
@@ -39,6 +39,6 @@ public class PresentationSelectionActivity extends AppCompatActivity {
 			public void run() {
 				startActivity(intent);
 			}
-		}, (long) 5);
+		}, (long) 1500);
 	}
 }

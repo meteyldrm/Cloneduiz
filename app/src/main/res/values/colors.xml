@@ -9,4 +9,7 @@
     <color name="gray">#222222</color>
     <color name="orange">#FF7000</color>
     <color name="transparent">@android:color/transparent</color>
+
+    <color name="green">#00AA00</color>
+    <color name="red">#AA0000</color>
 </resources>

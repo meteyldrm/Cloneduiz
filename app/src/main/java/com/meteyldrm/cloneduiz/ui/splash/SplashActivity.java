@@ -9,23 +9,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.meteyldrm.cloneduiz.R;
-import com.meteyldrm.cloneduiz.questions.Answer;
-import com.meteyldrm.cloneduiz.questions.Question;
 import com.meteyldrm.cloneduiz.questions.QuestionData;
 import com.meteyldrm.cloneduiz.questions.QuestionPlaceHolder;
 import com.meteyldrm.cloneduiz.ui.main.MainActivity;
-import com.meteyldrm.cloneduiz.ui.score.NameActivity;
 import com.meteyldrm.cloneduiz.utility.Constants;
-import com.meteyldrm.cloneduiz.utility.Sort;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
 
 public class SplashActivity extends AppCompatActivity {
 

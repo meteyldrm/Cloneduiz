@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.score.NameActivity"></activity>
+        <activity android:name=".ui.score.ResultsActivity"/>
+        <activity android:name=".ui.score.NameActivity" />
 
         <meta-data
             android:name="DATABASE"
@@ -41,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.presentation.PresentationSelectionActivity" />
-        <activity android:name=".ui.question.list.ListPresentationActivity" />
+        <activity android:name=".ui.question.list.ListPresentationActivity" android:noHistory="true"/>
     </application>
 
 </manifest>
