@@ -1,8 +1,11 @@
 package com.meteyldrm.cloneduiz.utility;
 
-import com.orm.SugarRecord;
+import io.objectbox.annotation.Entity;
+import io.objectbox.annotation.Id;
 
-public class Score extends SugarRecord {
+@Entity
+public class Score {
+	@Id public long id;
 	String username;
 	Integer score;
 
@@ -13,6 +16,4 @@ public class Score extends SugarRecord {
 		this.username = username;
 		this.score = score;
 	}
-
-
 }

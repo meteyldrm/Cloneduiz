@@ -15,10 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.questions.Answer;
 import com.meteyldrm.cloneduiz.utility.Constants;
-import com.meteyldrm.cloneduiz.utility.Sort;
 
 import java.util.List;
-import java.util.logging.ConsoleHandler;
 
 public class ListAnswersRVAdapter extends RecyclerView.Adapter {
 

@@ -23,7 +23,7 @@ import java.util.List;
 public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	List<? extends RecyclerView.ViewHolder> questionViewHolders = new ArrayList<>();
-	List<Question> questions;
+	List<Question> questions = new ArrayList<>();
 
 	private static int TYPE_QUESTION = 1;
 
@@ -31,6 +31,9 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 
 	public ListPresentationRVAdapter(List<Question> list){
 		this.questions = list;
+	}
+
+	public ListPresentationRVAdapter(){
 	}
 
 	@NonNull
@@ -59,7 +62,7 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 			((ViewHolderQuestion) holder).bindResources(questions.get(position));
 			((ViewHolderQuestion) holder).answerRecyclerView.setLayoutManager(((ViewHolderQuestion) holder).answerLayoutManager);
 
-			((ViewHolderQuestion) holder).answerRecyclerView.setAdapter(new ListAnswersRVAdapter(questions.get(position).getAnswersAsList()));
+			((ViewHolderQuestion) holder).answerRecyclerView.setAdapter(new ListAnswersRVAdapter(questions.get(position).getAnswers()));
 		}
 	}
 
@@ -100,5 +103,9 @@ public class ListPresentationRVAdapter extends RecyclerView.Adapter<RecyclerView
 		public void bindResources(final Question question){
 			questionTitle.setText(question.getQuestion());
 		}
+	}
+
+	public void updateResources(List<Question> questions){
+		this.questions = questions;
 	}
 }

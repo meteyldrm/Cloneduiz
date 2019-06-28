@@ -18,8 +18,7 @@ public class NameActivity extends AppCompatActivity {
 		findViewById(R.id.button_name).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Score score = new Score("username", 5);
-				score.save();
+
 			}
 		});
 	}

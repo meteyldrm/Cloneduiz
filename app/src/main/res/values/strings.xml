@@ -7,4 +7,6 @@
     <string name="proceed">Devam</string>
     <string name="hint_name">İsim Gir</string>
     <string name="name_required"><i>Skor tablosu için ismine ihtiyacım var</i></string>
+
+    <string name="user_answer_missing">Boş Bıraktınız!</string>
 </resources>

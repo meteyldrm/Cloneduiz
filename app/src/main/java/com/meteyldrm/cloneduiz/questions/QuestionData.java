@@ -2,9 +2,7 @@ package com.meteyldrm.cloneduiz.questions;
 
 import com.meteyldrm.cloneduiz.utility.Sort;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 public class QuestionData {
@@ -21,7 +19,7 @@ public class QuestionData {
 
 	public void resetState(){
 		for(Question question: getQuestions()){
-			Answer[] answers = question.getAnswers();
+			List<Answer> answers = question.getAnswers();
 			for(Answer answer: answers){
 				answer.setSelected(false);
 			}
@@ -29,27 +27,17 @@ public class QuestionData {
 	}
 
 	public void randomize(){
-		Sort.sort(getQuestionsAsList(), Sort.RANDOM);
+		Sort.sort(getQuestions(), Sort.RANDOM);
 		for(Question question: getQuestions()){
-			List<Answer> answers = Arrays.asList(question.getAnswers());
-			Sort.sort(answers, Sort.RANDOM);
-			question.setAnswers((Answer[]) answers.toArray());
+			Sort.sort(question.getAnswers(), Sort.RANDOM);
 		}
 	}
 
-	private static Question[] questions;
+	private static List<Question> questions;
 
-	public Question[] getQuestions() { return questions; }
+	public List<Question> getQuestions() { return questions; }
 
-	public List<Question> getQuestionsAsList(){
-		return Arrays.asList(getQuestions());
-	}
-
-	public void setQuestions(Question[] value) { questions = value; }
-
-	public void setQuestionsAsList(List<Question> value){
-		questions = (Question[]) value.toArray();
-	}
+	public void setQuestions(List<Question> value) { questions = value; }
 
 
 }
