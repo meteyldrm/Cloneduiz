@@ -9,4 +9,8 @@
     <string name="name_required"><i>Skor tablosu için ismine ihtiyacım var</i></string>
 
     <string name="user_answer_missing">Boş Bıraktınız!</string>
+
+    <string name="username_already_used">Bu isim daha önce kullanılmış. Lütfen başka bir isim kullanınız.</string>
+
+    <string name="score">Score: %1$d</string>
 </resources>

@@ -48,6 +48,9 @@ public class ListAnswersRVAdapter extends RecyclerView.Adapter {
 					}
 					answer.setSelected(true);
 					notifyDataSetChanged();
+				} else {
+					answer.setSelected(false);
+					notifyDataSetChanged();
 				}
 			}
 		});

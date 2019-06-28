@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.events.QuestionRequestEvent;
 import com.meteyldrm.cloneduiz.events.QuestionSupplyEvent;
+import com.meteyldrm.cloneduiz.questions.Answer;
 import com.meteyldrm.cloneduiz.questions.Question;
-import com.meteyldrm.cloneduiz.questions.QuestionPlaceHolder;
 import com.meteyldrm.cloneduiz.utility.Constants;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,11 +24,10 @@ import java.util.Objects;
 public class ResultsActivity extends AppCompatActivity {
 
 	RecyclerView recyclerView;
-	QuestionPlaceHolder placeHolder;
+
+	List<Question> questions;
 
 	EventBus eventBus = EventBus.getDefault();
-
-	boolean isRecyclerViewSuppliedData = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class ResultsActivity extends AppCompatActivity {
 		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
 		recyclerView.setLayoutManager(mLayoutManager);
 		recyclerView.setAdapter(new ResultsRVAdapter());
+
+		findViewById(R.id.button_proceed_results).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				launchNameActivity();
+			}
+		});
 	}
 
 	@Override
@@ -51,7 +59,7 @@ public class ResultsActivity extends AppCompatActivity {
 
 	@Subscribe
 	public void onQuestionSupplyEvent(QuestionSupplyEvent event){
-		List<Question> questions = event.questions;
+		questions = event.questions;
 		((ResultsRVAdapter) Objects.requireNonNull(recyclerView.getAdapter())).updateResources(questions);
 	}
 
@@ -64,5 +72,26 @@ public class ResultsActivity extends AppCompatActivity {
 	protected void onStop() {
 		eventBus.unregister(this);
 		super.onStop();
+	}
+
+	public void launchNameActivity(){
+
+		int score = 0;
+
+		for(Question question: questions){
+			boolean isCorrect = false;
+			for(Answer answer: question.getAnswers()){
+				if(answer.getSelected() && answer.getIsTrue().equals("true")){
+					isCorrect = true;
+				}
+			}
+			if(isCorrect){
+				score += Constants.SCORE_VALUE;
+			}
+		}
+
+		Intent intent = new Intent(this, NameActivity.class);
+		intent.putExtra(Constants.SCORE_INTENT_KEY, score);
+		startActivity(intent);
 	}
 }

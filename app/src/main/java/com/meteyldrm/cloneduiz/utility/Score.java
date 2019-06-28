@@ -6,8 +6,8 @@ import io.objectbox.annotation.Id;
 @Entity
 public class Score {
 	@Id public long id;
-	String username;
-	Integer score;
+	public String username;
+	public Integer score;
 
 	public Score(){
 	}

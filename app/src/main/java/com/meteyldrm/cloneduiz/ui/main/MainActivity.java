@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.ui.presentation.PresentationSelectionActivity;
+import com.meteyldrm.cloneduiz.ui.score.ScoreActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,10 +32,21 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		findViewById(R.id.button_main_highscore).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				launchScoresActivity();
+			}
+		});
+
 	}
 
 	public void launchPresentationSelectionActivity(){
 		Intent intent = new Intent(this, PresentationSelectionActivity.class);
+		startActivity(intent);
+	}
+	public void launchScoresActivity(){
+		Intent intent = new Intent(this, ScoreActivity.class);
 		startActivity(intent);
 	}
 }
