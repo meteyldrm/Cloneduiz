@@ -13,4 +13,11 @@
     <string name="username_already_used">Bu isim daha önce kullanılmış. Lütfen başka bir isim kullanınız.</string>
 
     <string name="score">Score: %1$d</string>
+
+
+
+    <!--ViewPager Titles-->
+    <string name="viewpager_title_list">Liste Görünümü</string>
+    <string name="viewpager_title_sorted">Sıralı Görünüm</string>
+    <string name="viewpager_title_page">Sayfa Görünümü</string>
 </resources>

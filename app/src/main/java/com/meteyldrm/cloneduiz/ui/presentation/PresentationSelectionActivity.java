@@ -3,6 +3,7 @@ package com.meteyldrm.cloneduiz.ui.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -30,15 +31,14 @@ public class PresentationSelectionActivity extends AppCompatActivity {
 
 		viewPager = findViewById(R.id.viewPager);
 
-		viewPager.setAdapter(new PresentationViewPagerAdapter(this, new PresentationImagePresenter()));
+		viewPager.setAdapter(new PresentationViewPagerAdapter(this, new PresentationImagePresenter(this)));
 
-		Intent intent = new Intent(PresentationSelectionActivity.this, ListPresentationActivity.class);
-		Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
+		findViewById(R.id.button_proceed_presentation_selection).setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void run() {
+			public void onClick(View v) {
+				Intent intent = new Intent(PresentationSelectionActivity.this, ListPresentationActivity.class);
 				startActivity(intent);
 			}
-		}, (long) 1500);
+		});
 	}
 }

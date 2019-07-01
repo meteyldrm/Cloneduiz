@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.meteyldrm.cloneduiz.R;
@@ -19,10 +20,12 @@ public class PresentationViewPagerAdapter extends PagerAdapter {
 
 	private Context context;
 	private List<Drawable> images;
+	private List<String> titles;
 
 	public PresentationViewPagerAdapter(Context context, PresentationData data){
 		this.context = context;
 		this.images = data.getImages();
+		this.titles = data.getTitles();
 	}
 
 	@NonNull
@@ -32,7 +35,13 @@ public class PresentationViewPagerAdapter extends PagerAdapter {
 		ViewGroup layout = (ViewGroup) layoutInflater.inflate(R.layout.partial_presentation_image, container, false);
 		ImageView imageView = layout.findViewById(R.id.presentationImageView);
 		imageView.setImageDrawable(images.get(position));
+		container.addView(layout);
 		return layout;
+	}
+
+	@Override
+	public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+		container.removeView((View) object);
 	}
 
 	@Override
@@ -43,5 +52,11 @@ public class PresentationViewPagerAdapter extends PagerAdapter {
 	@Override
 	public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
 		return view == object;
+	}
+
+	@Nullable
+	@Override
+	public CharSequence getPageTitle(int position) {
+		return titles.get(position);
 	}
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PresentationData {
 	List<Drawable> getImages();
+	List<String> getTitles();
 }

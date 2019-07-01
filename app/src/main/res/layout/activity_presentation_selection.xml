@@ -5,8 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/component_toolbar" android:id="@+id/toolbar_presentation_selection"/>
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_presentation_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/gray">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_proceed_presentation_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proceed"
+            android:background="@color/transparent"
+            android:minHeight="8dp"
+            android:minWidth="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="end"
+            />
+    </androidx.appcompat.widget.Toolbar>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="wrap_content"
