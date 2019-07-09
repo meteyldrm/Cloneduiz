@@ -62,7 +62,8 @@ public class NameActivity extends AppCompatActivity {
 						toast(getText(R.string.username_already_used).toString());
 					} else {
 						scoreBox.put(new Score(name, score));
-						Intent intent = new Intent(v.getContext(), MainActivity.class);
+						Intent intent = new Intent(v.getContext(), ScoreActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						startActivity(intent);
 						finish();
 					}

@@ -2,6 +2,7 @@ package com.meteyldrm.cloneduiz.utility.comparator;
 
 import com.meteyldrm.cloneduiz.questions.Answer;
 import com.meteyldrm.cloneduiz.questions.Question;
+import com.meteyldrm.cloneduiz.utility.Score;
 
 import java.util.Comparator;
 
@@ -30,6 +31,13 @@ public interface DataComparator {
 			String answer1 = o1.getName();
 			String answer2 = o2.getName();
 			return answer1.compareTo(answer2);
+		}
+	}
+
+	class ScoreValueComparator implements Comparator<Score>{
+		@Override
+		public int compare(Score o1, Score o2){
+			return Integer.compare(o2.score, o1.score);
 		}
 	}
 }

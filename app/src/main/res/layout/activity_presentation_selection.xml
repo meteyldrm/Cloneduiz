@@ -26,6 +26,7 @@
             android:minHeight="8dp"
             android:minWidth="8dp"
             android:layout_marginEnd="8dp"
+            android:padding="8dp"
             android:layout_gravity="end"
             />
     </androidx.appcompat.widget.Toolbar>

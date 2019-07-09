@@ -44,6 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="@string/start"
+        android:padding="20dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/activityMainTextViewPrompt"
         app:layout_constraintStart_toStartOf="@+id/activityMainTextViewPrompt"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -54,6 +56,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="@string/high_score"
+        android:textSize="18sp"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="@+id/button_main_start"
         app:layout_constraintStart_toStartOf="@+id/button_main_start"
         app:layout_constraintTop_toBottomOf="@+id/button_main_start" />

@@ -53,6 +53,7 @@ public class ListPresentationActivity extends AppCompatActivity {
 				placeHolder.questions = QuestionData.getInstance().getQuestions();
 				Intent intent = new Intent(v.getContext(), ResultsActivity.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 

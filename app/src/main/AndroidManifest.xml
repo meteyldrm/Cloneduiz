@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.score.ScoreActivity"/>
+        <activity android:name=".ui.question.page.PagePresentationActivity"/>
+        <activity android:name=".ui.score.ScoreActivity" />
         <activity android:name=".ui.score.ResultsActivity" />
         <activity android:name=".ui.score.NameActivity" />
 

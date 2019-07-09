@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.meteyldrm.cloneduiz.R;
 import com.meteyldrm.cloneduiz.utility.App;
 import com.meteyldrm.cloneduiz.utility.Score;
+import com.meteyldrm.cloneduiz.utility.Sort;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class ScoreActivity extends AppCompatActivity {
 		((App) getApplication()).getActivityComponent().inject(this);
 
 		scores = boxStore.boxFor(Score.class).getAll();
+		Sort.sort(scores, Sort.BY_SCORE);
 
 		recyclerView = findViewById(R.id.recyclerView_score);
 		recyclerView.setHasFixedSize(true);

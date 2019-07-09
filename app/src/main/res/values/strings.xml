@@ -14,6 +14,11 @@
 
     <string name="score">Score: %1$d</string>
 
+    <string name="end_test">Testi Sonlandır</string>
+    <string name="end_test_subtitle">Testi sonlandırmak istediğinize emin misiniz?</string>
+
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
 
 
     <!--ViewPager Titles-->

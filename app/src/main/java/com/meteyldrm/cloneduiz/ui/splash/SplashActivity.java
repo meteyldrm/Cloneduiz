@@ -3,6 +3,7 @@ package com.meteyldrm.cloneduiz.ui.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -44,12 +45,6 @@ public class SplashActivity extends AppCompatActivity {
 		}, Constants.SPLASH_SCREEN_DURATION_MINIMUM);
 
 		boolean questionsLoaded = this.initialize();
-
-		if(!questionsLoaded){
-			Toast.makeText(this, "Could not initialize", Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(this, "Init", Toast.LENGTH_SHORT).show();
-		}
 	}
 
 	public boolean initialize() {

@@ -21,8 +21,8 @@ public class PresentationImagePresenter implements PresentationData {
 		List<Drawable> drawables = new ArrayList<>();
 
 		drawables.add(context.getDrawable(R.drawable.qunduiz_list));
-		drawables.add(context.getDrawable(R.drawable.qunduiz_sorted));
 		drawables.add(context.getDrawable(R.drawable.qunduiz_page));
+		drawables.add(context.getDrawable(R.drawable.qunduiz_sorted));
 
 		return drawables;
 	}

@@ -93,5 +93,6 @@ public class ResultsActivity extends AppCompatActivity {
 		Intent intent = new Intent(this, NameActivity.class);
 		intent.putExtra(Constants.SCORE_INTENT_KEY, score);
 		startActivity(intent);
+		finish();
 	}
 }
