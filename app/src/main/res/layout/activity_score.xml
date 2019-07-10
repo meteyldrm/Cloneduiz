@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.score.ScoreActivity">
 
+    <include layout="@layout/component_toolbar" android:id="@+id/score_toolbar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_score"
         android:layout_width="0dp"
@@ -13,5 +15,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/score_toolbar" />
+
+    <Button
+        android:id="@+id/button_reset_scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/reset_scores"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView_score"
+        app:layout_constraintEnd_toEndOf="@+id/score_toolbar"
+        app:layout_constraintTop_toTopOf="@+id/score_toolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

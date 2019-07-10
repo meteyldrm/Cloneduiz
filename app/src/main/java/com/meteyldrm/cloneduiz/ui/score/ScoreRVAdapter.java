@@ -101,4 +101,9 @@ public class ScoreRVAdapter extends RecyclerView.Adapter {
 			textViewScore.setText(String.format(itemView.getContext().getString(R.string.score), score));
 		}
 	}
+
+	public void updateScores(List<Score> scores){
+		this.scores = scores;
+		this.notifyDataSetChanged();
+	}
 }

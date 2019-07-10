@@ -13,6 +13,7 @@
     <string name="username_already_used">Bu isim daha önce kullanılmış. Lütfen başka bir isim kullanınız.</string>
 
     <string name="score">Score: %1$d</string>
+    <string name="reset_scores">Skorları sil</string>
 
     <string name="end_test">Testi Sonlandır</string>
     <string name="end_test_subtitle">Testi sonlandırmak istediğinize emin misiniz?</string>
